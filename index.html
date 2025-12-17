@@ -16,10 +16,9 @@
       background-attachment: fixed;
       min-height: 100vh;
       display: flex;
-      flex-direction: row; /* sidebar on left */
+      flex-direction: row;
     }
 
-    /* Overlay for readability */
     body::before {
       content: "";
       position: fixed;
@@ -31,21 +30,25 @@
 
     /* Sidebar menu */
     .sidebar {
-      width: 250px;
+      width: 320px; /* Increased width */
       padding: 20px;
       background-color: rgba(255,255,255,0.6);
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       min-height: 100vh;
+      box-sizing: border-box;
     }
 
     .sidebar h1 {
       font-weight: bold;
-      font-size: 1.8em;
+      font-size: 1.6em; /* slightly smaller to fit one line */
       margin-bottom: 30px;
       color: black;
       text-align: left;
+      white-space: nowrap; /* prevents line break */
+      overflow: hidden;
+      text-overflow: ellipsis; /* optional: shows "..." if still too long */
     }
 
     .sidebar ul {
@@ -73,24 +76,23 @@
       text-decoration: none;
     }
 
-    /* Content area (optional) */
     .content {
       flex: 1;
       padding: 20px;
     }
 
-    /* Responsive: sidebar on top for smaller screens */
+    /* Responsive adjustments */
     @media (max-width: 768px) {
       body {
         flex-direction: column;
       }
       .sidebar {
         width: 100%;
-        min-height: auto;
         padding: 15px;
       }
       .sidebar h1 {
-        font-size: 1.5em;
+        font-size: 1.4em;
+        white-space: normal; /* allow wrapping on very small screens */
       }
       .sidebar ul li a {
         font-size: 1em;
@@ -101,7 +103,6 @@
 </head>
 <body>
 
-  <!-- Sidebar menu -->
   <div class="sidebar">
     <h1>ಮಂತ್ರ ಸ್ತೋತ್ರ ಸಂಗ್ರಹಗಳು</h1>
     <ul>
@@ -113,9 +114,8 @@
     </ul>
   </div>
 
-  <!-- Optional content area -->
   <div class="content">
-    <!-- You can add welcome text, instructions, or leave blank -->
+    <!-- Optional content here -->
   </div>
 
 </body>
